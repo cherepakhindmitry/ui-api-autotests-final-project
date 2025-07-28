@@ -1,0 +1,93 @@
+[
+  {
+    "name": "_yasc",
+    "value": "uhaEaSIGaEc6pOItoSLY6bQO5bTmD9fpzOHLH/wU5AxFtwnmwZJlKnEU79VUUDWuLg==",
+    "domain": ".yandex.ru",
+    "path": "/",
+    "expiry": 1788283136
+  },
+  {
+    "name": "_yasc",
+    "value": "gAXcZ0krCxpdUunKonW2SGf3ktAFb/ljjyCrJprtj2ucA70U85oWNjx9IIlZ4rIHZ/GI4fDh",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1788283135
+  },
+  {
+    "name": "_ym_d",
+    "value": "1753723145",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1785259144
+  },
+  {
+    "name": "_ym_uid",
+    "value": "1753723129978800128",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1785259144
+  },
+  {
+    "name": "disable_server_sso_redirect",
+    "value": "1",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1753726736
+  },
+  {
+    "name": "gdpr",
+    "value": "0",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1785259144
+  },
+  {
+    "name": "i",
+    "value": "NAL0a6Z2gO8Jszo850epMEBqqE/sR1LyNFYF4+vX3deTNRyRjH78OpVpzhyxIZdRNuMSFUnaE3wJBDHw1xTsrQkCL/4=",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1788283137
+  },
+  {
+    "name": "mda2_beacon",
+    "value": "1753723135284",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1788283137
+  },
+  {
+    "name": "no-re-reg-required",
+    "value": "1",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1753809538
+  },
+  {
+    "name": "sessar",
+    "value": "1.1204.CiBPae-jA5Ai6eQArFO8apcctP5Oc5nLMpyJybLDXZA4gQ.Jx62Pwt7NHLvsU78ajyx-rXh0AHh8m32SpWdcIM30xY",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1753730337
+  },
+  {
+    "name": "spravka",
+    "value": "dD0xNzUzNzIzMTM0O2k9MjEyLjM0LjEzNy4xMzA7RD1DOUZCQzhERUQ0RjVDODQ3MzBCM0YzQTlGM0Q3RUI0MDEzNjA5REM1RkQ2NTdERkE0REY5ODdFNjY2MkRERTU3MERBNkYyODQ2Rjg0RDgzQzUwMzUwRDMwQ0RCODQwOUQyRjY5MEMxQzVFQzk0MUY1MzRGQkEzOEJCRjRBMzI0NzhBNjhCQjMyRTUxMzk5MUNFNUI2NjgxQzRBMThBNjNCQTdBNjM1MDA4NkNBNzE7dT0xNzUzNzIzMTM0NzA2MDMzNDYyO2g9M2QzMzkyNTU5MTljM2JkNjYwZTNkOWM0YThkMGM2NTE=",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1756315134
+  },
+  {
+    "name": "sso_status",
+    "value": "sso.passport.yandex.ru:synchronized",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1753729137
+  },
+  {
+    "name": "ya_sess_id",
+    "value": "noauth:1753723135",
+    "domain": ".kinopoisk.ru",
+    "path": "/",
+    "expiry": 1753730337
+  }
+]
