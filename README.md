@@ -53,7 +53,7 @@ final-project/
 
 ```bash
 git clone https://github.com/cherepakhindmitry/ui-api-autotests-final-project.git
-cd final-project
+cd ui-api-autotests-final-project
 pip install -r requirements.txt
 ```
 
@@ -78,6 +78,11 @@ python -m pytest -m api --alluredir=allure-results
 ### Через `.bat`-файл:
 ```cmd
 run_tests.bat
+
+Файл run_tests.bat предназначен только для Windows.
+Пользователям macOS и Linux необходимо запускать тесты через команду:
+python -m pytest --alluredir=allure-results
+allure serve allure-results
 ```
 
 ## 🔐 Примечания
