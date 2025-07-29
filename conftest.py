@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 # Настройка десктопного браузера
 @pytest.fixture
 def driver():
@@ -54,7 +55,7 @@ def driver():
 @pytest.fixture
 def mobile_driver():
     mobile_emulation = {
-        "deviceMetrics": { "width": 375, "height": 667, "pixelRatio": 3.0 },
+        "deviceMetrics": {"width": 375, "height": 667, "pixelRatio": 3.0},
         "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) "
                      "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 "
                      "Mobile/15E148 Safari/604.1"

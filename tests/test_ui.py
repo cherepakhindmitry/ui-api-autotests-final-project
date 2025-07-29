@@ -27,7 +27,11 @@ def test_search_interstellar(driver):
             search_input.send_keys("Интерстеллар")
             search_input.send_keys(Keys.RETURN)  # Нажимаем Enter
         except TimeoutException:
-            allure.attach(driver.get_screenshot_as_png(), name="search_input_not_found", attachment_type=allure.attachment_type.PNG)
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="search_input_not_found",
+                attachment_type=allure.attachment_type.PNG
+            )
             pytest.fail("❌ Поле поиска не найдено")
 
     with allure.step("Ожидаем появления результатов поиска и проверяем наличие 'Интерстеллар'"):
@@ -39,10 +43,12 @@ def test_search_interstellar(driver):
             )
             assert result.is_displayed(), "❌ Фильм 'Интерстеллар' найден, но не отображается"
         except TimeoutException:
-            allure.attach(driver.get_screenshot_as_png(), name="interstellar_not_found", attachment_type=allure.attachment_type.PNG)
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="interstellar_not_found",
+                attachment_type=allure.attachment_type.PNG
+            )
             pytest.fail("❌ Фильм 'Интерстеллар' не найден в результатах поиска")
-
-
 
 
 @allure.title("Поиск несуществующего фильма")
@@ -70,7 +76,6 @@ def test_search_nonexistent_film(driver):
     with allure.step("Проверка отсутствия результатов"):
         no_results = driver.find_elements(By.XPATH, "//a[contains(text(), 'ВасяПупкинВестерн')]")
         assert len(no_results) == 0, "Найден неожиданный результат поиска!"
-
 
 
 @allure.title("Подсказка в поле поиска")
@@ -141,7 +146,8 @@ def test_adaptive_layout(driver, mobile_driver):
         WebDriverWait(mobile_driver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "button[aria-label*='меню'], button[aria-label*='Меню']"))
         )
-        assert mobile_driver.find_element(By.CSS_SELECTOR, "button[aria-label*='меню'], button[aria-label*='Меню']").is_displayed(), \
+        assert mobile_driver.find_element(By.CSS_SELECTOR,
+                                          "button[aria-label*='меню'],"
+                                          " button[aria-label*='Меню']"
+                                          ).is_displayed(), \
             "Мобильное меню не отображается в мобильной версии"
-
-
