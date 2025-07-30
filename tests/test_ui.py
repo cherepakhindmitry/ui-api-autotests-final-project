@@ -1,7 +1,6 @@
 import pytest
 import allure
 import time
-import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -58,7 +57,7 @@ def test_search_nonexistent_film(driver):
         driver.get("https://www.kinopoisk.ru/")
 
     with allure.step("Ввод запроса несуществующего фильма"):
-        search_input = WebDriverWait(driver, 10).until(
+        search_input = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, "input[aria-label*='Фильмы']")
             )
@@ -67,7 +66,7 @@ def test_search_nonexistent_film(driver):
         search_input.send_keys("ВасяПупкинВестерн")
 
     with allure.step("Ожидание появления выпадающих результатов"):
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_element_located(
                 (By.XPATH, "//div[contains(@class, 'header-search-form__suggest')]")
             )
@@ -85,7 +84,7 @@ def test_search_field_placeholder(driver):
         driver.get("https://www.kinopoisk.ru")
 
     with allure.step("Ожидание появления поля поиска"):
-        search_input = WebDriverWait(driver, 10).until(
+        search_input = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, "input[aria-label*='Фильмы']")
             )
@@ -112,14 +111,16 @@ def test_login_button_highlight(driver):
             EC.presence_of_element_located((By.XPATH, "//button[text()='Войти']"))
         )
 
+    with allure.step("Проверка цвета кнопки до наведения мыши"):
+        button_color_before = driver.find_element(By.XPATH, "//button[text()='Войти']").value_of_css_property("color")
+
     with allure.step("Наведение мыши на кнопку"):
         ActionChains(driver).move_to_element(button).perform()
-        time.sleep(2)  # Пауза, чтобы визуально отобразился hover
+        time.sleep(5)  # Пауза, чтобы визуально отобразился hover
 
-    with allure.step("Скриншот кнопки после наведения"):
-        screenshot_path = os.path.abspath("login_hover.png")
-        driver.save_screenshot(screenshot_path)
-        allure.attach.file(screenshot_path, name="Кнопка_войти_hover", attachment_type=allure.attachment_type.PNG)
+    with allure.step("Проверка изменения цвета кнопки"):
+        button_color_after = driver.find_element(By.XPATH, "//button[text()='Войти']").value_of_css_property("color")
+        assert button_color_before != button_color_after
 
 
 @allure.title("Адаптивность главной страницы Кинопоиска")
@@ -127,7 +128,7 @@ def test_login_button_highlight(driver):
 def test_adaptive_layout(driver, mobile_driver):
     with allure.step("Открытие главной страницы в десктопной версии"):
         driver.get("https://www.kinopoisk.ru/")
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "//button[text()='Войти']"))
         )
         assert driver.find_element(By.XPATH, "//button[text()='Войти']").is_displayed(), \
@@ -135,7 +136,7 @@ def test_adaptive_layout(driver, mobile_driver):
 
     with allure.step("Открытие главной страницы в планшетной версии (эмуляция через resize)"):
         driver.set_window_size(1024, 768)
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "//button[text()='Войти']"))
         )
         assert driver.find_element(By.XPATH, "//button[text()='Войти']").is_displayed(), \
@@ -143,7 +144,7 @@ def test_adaptive_layout(driver, mobile_driver):
 
     with allure.step("Открытие главной страницы в мобильной версии (эмуляция iPhone)"):
         mobile_driver.get("https://www.kinopoisk.ru/")
-        WebDriverWait(mobile_driver, 10).until(
+        WebDriverWait(mobile_driver, 20).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "button[aria-label*='меню'], button[aria-label*='Меню']"))
         )
         assert mobile_driver.find_element(By.CSS_SELECTOR,
